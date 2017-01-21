@@ -14,6 +14,7 @@
 		AB05B3C11E330B34000AB03D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB05B3C01E330B34000AB03D /* Assets.xcassets */; };
 		AB05B3C41E330B34000AB03D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB05B3C21E330B34000AB03D /* LaunchScreen.storyboard */; };
 		AB05B3CF1E330B34000AB03D /* SurfMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB05B3CE1E330B34000AB03D /* SurfMapTests.swift */; };
+		CD202B051E341DFD000C7147 /* CallSurflineAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD202B041E341DFD000C7147 /* CallSurflineAPI.swift */; };
 		FD2D5544EBD2F82359419E94 /* Pods_SurfMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDA91624407867581B12C3B /* Pods_SurfMap.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		AB05B3CA1E330B34000AB03D /* SurfMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SurfMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB05B3CE1E330B34000AB03D /* SurfMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfMapTests.swift; sourceTree = "<group>"; };
 		AB05B3D01E330B34000AB03D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD202B041E341DFD000C7147 /* CallSurflineAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallSurflineAPI.swift; sourceTree = "<group>"; };
 		E0EE6E7D9B83F0D667F29FE4 /* Pods-SurfMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurfMapTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SurfMapTests/Pods-SurfMapTests.release.xcconfig"; sourceTree = "<group>"; };
 		FFDA91624407867581B12C3B /* Pods_SurfMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SurfMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -109,6 +111,7 @@
 		AB05B3B81E330B34000AB03D /* SurfMap */ = {
 			isa = PBXGroup;
 			children = (
+				CD202B041E341DFD000C7147 /* CallSurflineAPI.swift */,
 				AB05B3B91E330B34000AB03D /* AppDelegate.swift */,
 				AB05B3BB1E330B34000AB03D /* ViewController.swift */,
 				AB05B3BD1E330B34000AB03D /* Main.storyboard */,
@@ -331,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB05B3BC1E330B34000AB03D /* ViewController.swift in Sources */,
+				CD202B051E341DFD000C7147 /* CallSurflineAPI.swift in Sources */,
 				AB05B3BA1E330B34000AB03D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -539,6 +543,7 @@
 				AB05B3D51E330B34000AB03D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AB05B3D61E330B34000AB03D /* Build configuration list for PBXNativeTarget "SurfMapTests" */ = {
 			isa = XCConfigurationList;
@@ -547,6 +552,7 @@
 				AB05B3D81E330B34000AB03D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
