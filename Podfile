@@ -7,7 +7,7 @@ target 'SurfMap' do
 
   # Pods for SurfMap
 pod 'MBProgressHUD'
-pod 'AFNetworking'
+pod 'Alamofire'
 pod 'ArcGIS-Runtime-SDK-iOS', '100.0'
 
   target 'SurfMapTests' do

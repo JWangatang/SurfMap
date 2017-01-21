@@ -1,0 +1,18 @@
+PODS:
+  - Alamofire (4.3.0)
+  - ArcGIS-Runtime-SDK-iOS (100.0.0)
+  - MBProgressHUD (1.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - ArcGIS-Runtime-SDK-iOS (= 100.0)
+  - MBProgressHUD
+
+SPEC CHECKSUMS:
+  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  ArcGIS-Runtime-SDK-iOS: c96fbd2cf77678c75f54c69f341678fab2177bcf
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+
+PODFILE CHECKSUM: 16489fb7f5d8b9a676fe32a14f7c320cd738b29b
+
+COCOAPODS: 1.1.1
