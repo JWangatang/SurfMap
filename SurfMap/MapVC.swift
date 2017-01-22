@@ -30,7 +30,7 @@ class MapVC: UIViewController {
                     let mapUrlString = "http://jonathanzwang.maps.arcgis.com/home/webmap/viewer.html?webmap=bb43628b2e1d4a81b26868e7845a58ce"
                     self.mapView.map = AGSMap(url: NSURL(string: mapUrlString)! as URL)
                     //AGSMap(basemapType: .imageryWithLabels, latitude: 34.4140,  longitude: -119.8489, levelOfDetail: 16)
-                    populateMapView()
+                    self.populateMapView()
                 }
             }
         }
@@ -42,7 +42,23 @@ class MapVC: UIViewController {
     }
     
     func populateMapView () {
-        //Add some cool data points here
+        //use Late/Long here
+        let point = AGSPointMakeWGS84(34.4140, -119.8489)
+        
+        //create the symbol (depending on wave size)
+        let symbol = AGSTextSymbol(text: waves[0], color: UIColor(red: 0, green: 0, blue: 200/255, alpha: 1), size: 15, horizontalAlignment: AGSHorizontalAlignment.center, verticalAlignment: AGSVerticalAlignment.middle)
+
+        //greate a graphic with the symbol
+        let graphic = AGSGraphic(geometry: point, symbol: symbol)
+        
+        //create an overlay for the map
+        let overlay = AGSGraphicsOverlay()
+        
+        //add all the graphics here
+        overlay.graphics.add(graphic)
+        
+        //add the overlay to the map
+        self.mapView.graphicsOverlays.add(overlay)
     }
     
 
