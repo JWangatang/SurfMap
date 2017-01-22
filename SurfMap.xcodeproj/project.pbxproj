@@ -13,6 +13,7 @@
 		AB05B3C11E330B34000AB03D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB05B3C01E330B34000AB03D /* Assets.xcassets */; };
 		AB05B3C41E330B34000AB03D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB05B3C21E330B34000AB03D /* LaunchScreen.storyboard */; };
 		AB05B3CF1E330B34000AB03D /* SurfMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB05B3CE1E330B34000AB03D /* SurfMapTests.swift */; };
+		AB51CB681E351EDB004E39C6 /* LegendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB51CB671E351EDB004E39C6 /* LegendVC.swift */; };
 		ABD7E5631E345A9A007E9065 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7E5621E345A9A007E9065 /* MapVC.swift */; };
 		ABD7E5661E345CD6007E9065 /* ArcGIS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ABD7E5641E345CD6007E9065 /* ArcGIS.bundle */; };
 		ABD7E5671E345CD6007E9065 /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7E5651E345CD6007E9065 /* DetailsVC.swift */; };
@@ -44,6 +45,7 @@
 		AB05B3CA1E330B34000AB03D /* SurfMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SurfMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB05B3CE1E330B34000AB03D /* SurfMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfMapTests.swift; sourceTree = "<group>"; };
 		AB05B3D01E330B34000AB03D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB51CB671E351EDB004E39C6 /* LegendVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegendVC.swift; sourceTree = "<group>"; };
 		ABD7E5621E345A9A007E9065 /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		ABD7E5641E345CD6007E9065 /* ArcGIS.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ArcGIS.bundle; sourceTree = "<group>"; };
 		ABD7E5651E345CD6007E9065 /* DetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				CD202B041E341DFD000C7147 /* CallSurflineAPI.swift */,
 				AB05B3B91E330B34000AB03D /* AppDelegate.swift */,
 				AB05B3BD1E330B34000AB03D /* Main.storyboard */,
+				AB51CB671E351EDB004E39C6 /* LegendVC.swift */,
 				ABD7E5621E345A9A007E9065 /* MapVC.swift */,
 				AB05B3C01E330B34000AB03D /* Assets.xcassets */,
 				AB05B3C21E330B34000AB03D /* LaunchScreen.storyboard */,
@@ -346,6 +349,7 @@
 				CD202B051E341DFD000C7147 /* CallSurflineAPI.swift in Sources */,
 				ABD7E5671E345CD6007E9065 /* DetailsVC.swift in Sources */,
 				ABD7E5631E345A9A007E9065 /* MapVC.swift in Sources */,
+				AB51CB681E351EDB004E39C6 /* LegendVC.swift in Sources */,
 				AB05B3BA1E330B34000AB03D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

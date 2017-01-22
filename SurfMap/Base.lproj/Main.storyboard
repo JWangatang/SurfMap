@@ -6,10 +6,70 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--LegendVC-->
+        <scene sceneID="fG3-hr-kNQ">
+            <objects>
+                <viewController id="Zcw-d7-o9H" customClass="LegendVC" customModule="SurfMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dOO-qH-pQe"/>
+                        <viewControllerLayoutGuide type="bottom" id="ydo-ea-XmH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Fzx-Ek-Af3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQr-C6-AQo">
+                                <rect key="frame" x="16" y="72" width="343" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="gpk-xX-EPM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbY-2a-4DK">
+                                <rect key="frame" x="16" y="210" width="343" height="130"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEJ-Bd-O1E">
+                                <rect key="frame" x="16" y="348" width="343" height="130"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LbY-2a-4DK" firstAttribute="width" secondItem="cEJ-Bd-O1E" secondAttribute="height" multiplier="343:130" id="Hv9-hv-Vql"/>
+                            <constraint firstItem="ydo-ea-XmH" firstAttribute="top" secondItem="cEJ-Bd-O1E" secondAttribute="bottom" constant="189" id="LK3-Jy-kwG"/>
+                            <constraint firstItem="cEJ-Bd-O1E" firstAttribute="top" secondItem="LbY-2a-4DK" secondAttribute="bottom" constant="8" id="N19-jQ-kWc"/>
+                            <constraint firstItem="mQr-C6-AQo" firstAttribute="width" secondItem="LbY-2a-4DK" secondAttribute="height" multiplier="343:130" id="SLk-D3-ovQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LbY-2a-4DK" secondAttribute="trailing" id="TzF-Ic-SED"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="cEJ-Bd-O1E" secondAttribute="leading" id="d0h-Ey-54k"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="mQr-C6-AQo" secondAttribute="leading" id="fGc-kM-yWc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mQr-C6-AQo" secondAttribute="trailing" id="fNY-Cd-Fl7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cEJ-Bd-O1E" secondAttribute="trailing" id="g4F-wz-Y7B"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="LbY-2a-4DK" secondAttribute="leading" id="nNV-fO-14W"/>
+                            <constraint firstItem="mQr-C6-AQo" firstAttribute="top" secondItem="dOO-qH-pQe" secondAttribute="bottom" constant="8" id="zBb-d6-DFb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bigWaveLabel" destination="cEJ-Bd-O1E" id="kkx-XS-mvr"/>
+                        <outlet property="mediumWaveLabel" destination="LbY-2a-4DK" id="6hj-8c-47Q"/>
+                        <outlet property="smallWaveLabel" destination="mQr-C6-AQo" id="cDb-sG-GN2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oif-aX-KVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1021.6" y="-617.54122938530736"/>
+        </scene>
         <!--MapVC-->
         <scene sceneID="1vS-nz-7pw">
             <objects>
@@ -62,7 +122,13 @@
                             <constraint firstAttribute="trailingMargin" secondItem="gAA-43-9lE" secondAttribute="trailing" id="zm3-gL-yVz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Ht0-6H-V38"/>
+                    <navigationItem key="navigationItem" id="Ht0-6H-V38">
+                        <barButtonItem key="rightBarButtonItem" title="Legend" id="9O1-BT-1C9">
+                            <connections>
+                                <segue destination="Zcw-d7-o9H" kind="show" id="qq3-x6-D5F"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dateLabel" destination="Ke4-bP-BD2" id="Rby-bS-k0B"/>
                         <outlet property="mapView" destination="kt4-I3-NgY" id="iBL-GT-kWs"/>
