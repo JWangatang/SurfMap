@@ -10,25 +10,72 @@ import UIKit
 import ArcGIS
 
 class MapVC: UIViewController {
+    
     @IBOutlet var mapView: AGSMapView!
+    @IBOutlet var timeLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
+
     var portal : AGSPortal!
     
     var surfline_data = SurfData()
     let waves = ["💧", "💦", "🌊"]
     var day_index = 0
     var time_index = 0
+    //var adj_time = 0
+    let month_days = [1:31, 2:28, 3:31, 4:30, 5:31, 6:30, 7:31, 8:31, 9:30, 10:31, 11:30, 12:31]
+    let wave_hour = [4, 10, 16, 22]
+    
+    func updateTime () {
+        let hour = wave_hour[self.time_index]
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day], from: date)
+        
+        var year =  components.year
+        var month = components.month
+        var day = components.day
+        
+        let currentHour = Calendar.current.component(.hour, from: Date())
+        var time_difference = 0
+        if (currentHour > 19) {
+            time_difference = 3
+        } else if (currentHour > 13) {
+            time_difference = 2
+        } else if (currentHour > 7) {
+            time_difference = 1
+        }
+        
+        if (time_difference > 0) {
+            self.time_index = self.time_index + time_difference
+            if (self.time_index > 3) {
+                self.day_index += 1
+                self.time_index -= 4
+            }
+        }
+        
+        day! += self.day_index
+        
+        if(day! > month_days[month!]!) {
+            day = day! % month_days[month!]!
+            month! += 1
+            if(month! > 12) {
+                year! += 1
+            }
+        }
+        self.dateLabel.text = "Day:     " + String(month!) + "/" + String(day!) + "/" + String(year!)
+        self.timeLabel.text = "Time:     " + String(hour) + ":00"
+    }
 
     @IBAction func slider_changed(_ sender: UISlider) {
-        (self.day_index, self.time_index) = get_date_time_idices(slider_num: Int(sender.value))
+        get_date_time_idices(slider_num: Int(sender.value))
         self.mapView.graphicsOverlays.removeAllObjects()
         populateMapView()
     }
     
-    func get_date_time_idices(slider_num: Int) -> (Int, Int) {
-        let day_index = slider_num / 4
-        let time_index = slider_num % 4
-
-        return (day_index, time_index)
+    func get_date_time_idices(slider_num: Int) {
+        self.day_index = slider_num / 4
+        self.time_index = slider_num % 4
     }
     
     func wave_size(id: Int) -> String {
@@ -94,6 +141,7 @@ class MapVC: UIViewController {
         
         //add the overlay to the map
         self.mapView.graphicsOverlays.add(surfline_overlay)
+        updateTime()
     }
     
 
