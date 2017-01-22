@@ -24,6 +24,15 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kt4-I3-NgY" customClass="AGSMapView">
                                 <rect key="frame" x="16" y="28" width="343" height="619"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="27" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fiz-aJ-Ugo">
+                                        <rect key="frame" x="6" y="581" width="331" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="slider_changed:" destination="u3K-oF-YBD" eventType="valueChanged" id="FXb-wl-2NC"/>
+                                        </connections>
+                                    </slider>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>

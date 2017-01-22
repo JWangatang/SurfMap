@@ -18,10 +18,13 @@ class MapVC: UIViewController {
     var day_index = 0
     var time_index = 0
 
+    @IBAction func slider_changed(_ sender: UISlider) {
+        (self.day_index, self.time_index) = get_date_time_idices(slider_num: Int(sender.value))
+        self.mapView.graphicsOverlays.removeAllObjects()
+        populateMapView()
+    }
+    
     func get_date_time_idices(slider_num: Int) -> (Int, Int) {
-        // TODO: Create a slider that ranges from values 0 to 67.
-        // And when the slider's value changes, update day_index and time_index.
-        // Then remove the previous overlay and replace it with an updated one.
         let day_index = slider_num / 4
         let time_index = slider_num % 4
 
@@ -82,16 +85,15 @@ class MapVC: UIViewController {
             beach_graphics.append(AGSGraphic(geometry: beach_point, symbol: beach_symbol))
         }
         
-        //create an overlay for the map
-        let overlay = AGSGraphicsOverlay()
+        let surfline_overlay = AGSGraphicsOverlay()
         
         //add all the graphics here
         for graphic_ in beach_graphics {
-            overlay.graphics.add(graphic_)
+            surfline_overlay.graphics.add(graphic_)
         }
         
         //add the overlay to the map
-        self.mapView.graphicsOverlays.add(overlay)
+        self.mapView.graphicsOverlays.add(surfline_overlay)
     }
     
 
