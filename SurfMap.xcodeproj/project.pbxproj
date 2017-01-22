@@ -194,6 +194,7 @@
 					AB05B3B51E330B34000AB03D = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = B8UFVTJ84Q;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					AB05B3C91E330B34000AB03D = {

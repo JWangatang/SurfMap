@@ -23,30 +23,30 @@ class SurfData {
     init() {
         // Find all JSON for the beaches in SB and place data into self.dicts
         for id in SB_spot_ids.values {
-            get_surfline_data(spot_id: UInt32(id), surfdata: self)
+            get_surfline_data(UInt32(id), surfdata: self)
         }
     }
 
-    func add_data(data: NSDictionary) -> Void {
+    func add_data(_ data: NSDictionary) -> Void {
         let id = Int((data["id"] as! NSString).intValue)
         self.dicts.append(data)
-        self.surf_max.updateValue(extract_Surf_data(dataKey: "surf_max", dict: data, surfdata: self), forKey: id)
-        self.surf_min.updateValue(extract_Surf_data(dataKey: "surf_min", dict: data, surfdata: self), forKey: id)
-        self.coordinates.updateValue(extract_lat_lon_data(dict: data, surfdata: self), forKey: id)
+        self.surf_max.updateValue(extract_Surf_data("surf_max", dict: data, surfdata: self), forKey: id)
+        self.surf_min.updateValue(extract_Surf_data("surf_min", dict: data, surfdata: self), forKey: id)
+        self.coordinates.updateValue(extract_lat_lon_data(data, surfdata: self), forKey: id)
     }
 }
 
 
-func get_surfline_data(spot_id: UInt32, surfdata: SurfData) -> Void {
+func get_surfline_data(_ spot_id: UInt32, surfdata: SurfData) -> Void {
     let api_call: String = "https://api.surfline.com/v1/forecasts/\(spot_id)?"
     Alamofire.request(api_call).responseJSON { response in
         let JSON = response.result.value as! NSDictionary
-        surfdata.add_data(data: JSON)
+        surfdata.add_data(JSON)
     }
 }
 
 
-func extract_Surf_data(dataKey: String, dict: NSDictionary, surfdata: SurfData) -> [[Float]] {
+func extract_Surf_data(_ dataKey: String, dict: NSDictionary, surfdata: SurfData) -> [[Float]] {
     /*
      Return dictionary with Int as key and Array of Arrays containing Floats as values.
 
@@ -60,7 +60,7 @@ func extract_Surf_data(dataKey: String, dict: NSDictionary, surfdata: SurfData) 
     return data
 }
 
-func extract_lat_lon_data(dict: NSDictionary, surfdata: SurfData) -> (Float, Float) {
+func extract_lat_lon_data(_ dict: NSDictionary, surfdata: SurfData) -> (Float, Float) {
     /*
      Return dictionary with Int as keys and Tuple(latitude, longitude) as values.
      */
