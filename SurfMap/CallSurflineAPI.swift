@@ -25,13 +25,14 @@ class SurfData {
         for id in SB_spot_ids.values {
             get_surfline_data(spot_id: UInt32(id), surfdata: self)
         }
-        self.surf_max = extract_Surf_data(dataKey: "surf_max", surfdata: self)
-        self.surf_min = extract_Surf_data(dataKey: "surf_min", surfdata: self)
-        self.coordinates = extract_lat_lon_data(surfdata: self)
     }
 
     func add_data(data: NSDictionary) -> Void {
+        let id = Int((data["id"] as! NSString).intValue)
         self.dicts.append(data)
+        self.surf_max.updateValue(extract_Surf_data(dataKey: "surf_max", dict: data, surfdata: self), forKey: id)
+        self.surf_min.updateValue(extract_Surf_data(dataKey: "surf_min", dict: data, surfdata: self), forKey: id)
+        self.coordinates.updateValue(extract_lat_lon_data(dict: data, surfdata: self), forKey: id)
     }
 }
 
@@ -45,7 +46,7 @@ func get_surfline_data(spot_id: UInt32, surfdata: SurfData) -> Void {
 }
 
 
-func extract_Surf_data(dataKey: String, surfdata: SurfData) -> [Int : [[Float]]] {
+func extract_Surf_data(dataKey: String, dict: NSDictionary, surfdata: SurfData) -> [[Float]] {
     /*
      Return dictionary with Int as key and Array of Arrays containing Floats as values.
 
@@ -53,26 +54,18 @@ func extract_Surf_data(dataKey: String, surfdata: SurfData) -> [Int : [[Float]]]
         dict[id][0] is an Array containing surf height in feet for today at 4am, 10am, 4pm, and 10pm.
         dict[id][1] is for the next day and so on.
      */
-    var Surf_data = [Int : [[Float]]]()
-    for dict in surfdata.dicts {
-        let id = (dict["id"] as! NSString).intValue
-        let data_dict = dict["Surf"] as! NSDictionary
-        let data = data_dict[dataKey] as! [[Float]]
-        Surf_data[Int(id)] = data
-    }
-    return Surf_data
+    let data_dict = dict["Surf"] as! NSDictionary
+    let data = data_dict[dataKey] as! [[Float]]
+
+    return data
 }
 
-func extract_lat_lon_data(surfdata: SurfData) -> [Int : (Float, Float)] {
+func extract_lat_lon_data(dict: NSDictionary, surfdata: SurfData) -> (Float, Float) {
     /*
      Return dictionary with Int as keys and Tuple(latitude, longitude) as values.
      */
-    var lat_lon_data = [Int : (Float, Float)]()
-    for dict in surfdata.dicts {
-        let id = (dict["id"] as! NSString).intValue
-        let lat = (dict["lat"] as! NSString).floatValue
-        let lon = (dict["lon"] as! NSString).floatValue
-        lat_lon_data[Int(id)] = (lat, lon)
-    }
-    return lat_lon_data
+    let lat = (dict["lat"] as! NSString).floatValue
+    let lon = (dict["lon"] as! NSString).floatValue
+
+    return (lat, lon)
 }
