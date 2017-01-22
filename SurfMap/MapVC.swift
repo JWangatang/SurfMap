@@ -52,11 +52,8 @@ class MapVC: UIViewController {
     }
     
     func updateTime () {
-        let hour = wave_hour[self.time_index]
-        
         let date = Date()
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.year, .month, .day], from: date)
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: date)
         
         var year =  components.year
         var month = components.month
@@ -89,6 +86,8 @@ class MapVC: UIViewController {
                 year! += 1
             }
         }
+        let hour = wave_hour[self.time_index]
+        
         self.dateLabel.text = "Day:     " + String(month!) + "/" + String(day!) + "/" + String(year!)
         self.timeLabel.text = "Time:     " + String(hour) + ":00"
     }
