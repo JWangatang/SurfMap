@@ -123,6 +123,8 @@ class MapVC: UIViewController {
         for (id, (lat, long)) in surfline_data.coordinates {
             let beach_point = AGSPointMakeWGS84(lat, long)
             let beach_symbol = wave_size(id: Int(id))
+            beach_symbol.height = 30
+            beach_symbol.width = 30
             beach_points_and_symbols.append(beach_point, beach_symbol)
         }
 
