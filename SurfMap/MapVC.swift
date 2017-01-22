@@ -18,7 +18,6 @@ class MapVC: UIViewController {
     var portal : AGSPortal!
     
     var surfline_data = SurfData()
-    let waves = ["💧", "💦", "🌊"]
     var day_index = 0
     var time_index = 0
     //var adj_time = 0
@@ -78,16 +77,16 @@ class MapVC: UIViewController {
         self.time_index = slider_num % 4
     }
     
-    func wave_size(id: Int) -> String {
+    func wave_size(id: Int) -> AGSPictureMarkerSymbol {
         let max: Double = surfline_data.surf_max[id]![day_index][time_index]
         let min: Double = surfline_data.surf_min[id]![day_index][time_index]
         let size: Double = (max + min) / 2
         if size < 2.0 {
-            return waves[0]
+            return AGSPictureMarkerSymbol(image: #imageLiteral(resourceName: "water_drop"))
         } else if size < 4.0 {
-            return waves[1]
+            return AGSPictureMarkerSymbol(image: #imageLiteral(resourceName: "triple_drop"))
         } else {
-            return waves[2]
+            return AGSPictureMarkerSymbol(image: #imageLiteral(resourceName: "wave"))
         }
     }
 
@@ -120,10 +119,10 @@ class MapVC: UIViewController {
     func populateMapView () {
         updateTime()
         // Create points and text for beach name labels
-        var beach_points_and_symbols = [(AGSPoint, AGSTextSymbol)]()
+        var beach_points_and_symbols = [(AGSPoint, AGSPictureMarkerSymbol)]()
         for (id, (lat, long)) in surfline_data.coordinates {
             let beach_point = AGSPointMakeWGS84(lat, long)
-            let beach_symbol = AGSTextSymbol(text: wave_size(id: Int(id)), color: UIColor(red: 0, green: 0, blue: 200/255, alpha: 1), size: 15, horizontalAlignment: AGSHorizontalAlignment.center, verticalAlignment: AGSVerticalAlignment.middle)
+            let beach_symbol = wave_size(id: Int(id))
             beach_points_and_symbols.append(beach_point, beach_symbol)
         }
 
