@@ -13,9 +13,11 @@
 		AB05B3C11E330B34000AB03D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB05B3C01E330B34000AB03D /* Assets.xcassets */; };
 		AB05B3C41E330B34000AB03D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB05B3C21E330B34000AB03D /* LaunchScreen.storyboard */; };
 		AB05B3CF1E330B34000AB03D /* SurfMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB05B3CE1E330B34000AB03D /* SurfMapTests.swift */; };
+
 		AB99893F1E341CA100E05C68 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB99893E1E341CA100E05C68 /* MapVC.swift */; };
 		AB9989421E341CBC00E05C68 /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9989411E341CBC00E05C68 /* DetailsVC.swift */; };
 		AB9989491E341D8800E05C68 /* ArcGIS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AB9989481E341D8800E05C68 /* ArcGIS.bundle */; };
+		CD202B051E341DFD000C7147 /* CallSurflineAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD202B041E341DFD000C7147 /* CallSurflineAPI.swift */; };
 		FD2D5544EBD2F82359419E94 /* Pods_SurfMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDA91624407867581B12C3B /* Pods_SurfMap.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +48,7 @@
 		AB99893E1E341CA100E05C68 /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		AB9989411E341CBC00E05C68 /* DetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		AB9989481E341D8800E05C68 /* ArcGIS.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ArcGIS.bundle; sourceTree = "<group>"; };
+		CD202B041E341DFD000C7147 /* CallSurflineAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallSurflineAPI.swift; sourceTree = "<group>"; };
 		E0EE6E7D9B83F0D667F29FE4 /* Pods-SurfMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurfMapTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SurfMapTests/Pods-SurfMapTests.release.xcconfig"; sourceTree = "<group>"; };
 		FFDA91624407867581B12C3B /* Pods_SurfMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SurfMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -113,7 +116,9 @@
 		AB05B3B81E330B34000AB03D /* SurfMap */ = {
 			isa = PBXGroup;
 			children = (
+
 				AB9989481E341D8800E05C68 /* ArcGIS.bundle */,
+				CD202B041E341DFD000C7147 /* CallSurflineAPI.swift */,
 				AB05B3B91E330B34000AB03D /* AppDelegate.swift */,
 				AB05B3BD1E330B34000AB03D /* Main.storyboard */,
 				AB9989401E341CA700E05C68 /* View Controllers */,
@@ -348,8 +353,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				AB9989421E341CBC00E05C68 /* DetailsVC.swift in Sources */,
 				AB99893F1E341CA100E05C68 /* MapVC.swift in Sources */,
+
+				AB05B3BC1E330B34000AB03D /* ViewController.swift in Sources */,
+				CD202B051E341DFD000C7147 /* CallSurflineAPI.swift in Sources */,
 				AB05B3BA1E330B34000AB03D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
