@@ -5,6 +5,7 @@
 **SurfMap** is an iOS app that visualizes the best surf spots in the area using Esri.
 
 ## Walkthroughs
+![alt tag] (http://i.imgur.com/t0eGNBB.gif)
 
 GIFs created with [LiceCap](http://www.cockos.com/licecap/).
 
