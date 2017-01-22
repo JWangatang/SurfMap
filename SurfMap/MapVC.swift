@@ -24,6 +24,33 @@ class MapVC: UIViewController {
     let month_days = [1:31, 2:28, 3:31, 4:30, 5:31, 6:30, 7:31, 8:31, 9:30, 10:31, 11:30, 12:31]
     let wave_hour = [4, 10, 16, 22]
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //self.mapView.touchDelegate = self
+        
+        // Do any additional setup after loading the view.
+        self.portal = AGSPortal(url: URL(string: "http://www.arcgis.com")!, loginRequired: false)
+        self.portal.credential = AGSCredential(user: "jonathanzwang", password: "sbhacks2017")
+        self.portal.load { (error) in
+            if error == nil {
+                // check the portal item loaded and print the modified date
+                if self.portal.loadStatus == AGSLoadStatus.loaded {
+                    //let user = self.portal.user
+                    //print(user?.fullName!)
+                    let mapUrlString = "http://jonathanzwang.maps.arcgis.com/home/webmap/viewer.html?webmap=bb43628b2e1d4a81b26868e7845a58ce"
+                    self.mapView.map = AGSMap(url: NSURL(string: mapUrlString)! as URL)
+                    //AGSMap(basemapType: .imageryWithLabels, latitude: 34.4140,  longitude: -119.8489, levelOfDetail: 16)
+                    self.populateMapView()
+                }
+            }
+        }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     func updateTime () {
         let hour = wave_hour[self.time_index]
         
@@ -88,32 +115,6 @@ class MapVC: UIViewController {
         } else {
             return AGSPictureMarkerSymbol(image: #imageLiteral(resourceName: "wave"))
         }
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        self.portal = AGSPortal(url: URL(string: "http://www.arcgis.com")!, loginRequired: false)
-        self.portal.credential = AGSCredential(user: "jonathanzwang", password: "sbhacks2017")
-        self.portal.load { (error) in
-            if error == nil {
-            // check the portal item loaded and print the modified date
-                if self.portal.loadStatus == AGSLoadStatus.loaded {
-                //let user = self.portal.user
-                //print(user?.fullName!)
-                    let mapUrlString = "http://jonathanzwang.maps.arcgis.com/home/webmap/viewer.html?webmap=bb43628b2e1d4a81b26868e7845a58ce"
-                    self.mapView.map = AGSMap(url: NSURL(string: mapUrlString)! as URL)
-                    //AGSMap(basemapType: .imageryWithLabels, latitude: 34.4140,  longitude: -119.8489, levelOfDetail: 16)
-                    self.populateMapView()
-                }
-            }
-        }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func populateMapView () {
