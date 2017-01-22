@@ -6,7 +6,7 @@
 
 ## Walkthroughs
 
-GIFs created with [LiceCap](http://i.imgur.com/wo8w5us.gif).
+GIFs created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Credits
 - [Esri](https://developers.arcgis.com/)
