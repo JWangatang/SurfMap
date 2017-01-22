@@ -9,6 +9,9 @@
 
 GIFs created with [LiceCap](http://www.cockos.com/licecap/).
 
+## Devpost
+[Check out our devpost page](https://devpost.com/software/surfmap-7a9btm)
+
 ## Credits
 - [Esri](https://developers.arcgis.com/)
 - [Surfline](http://www.surfline.com/)
