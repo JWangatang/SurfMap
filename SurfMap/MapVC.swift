@@ -13,7 +13,33 @@ class MapVC: UIViewController {
     @IBOutlet var mapView: AGSMapView!
     var portal : AGSPortal!
     
+    var surfline_data = SurfData()
     let waves = ["💧", "💦", "🌊"]
+    var day_index = 0
+    var time_index = 0
+
+    func get_date_time_idices(slider_num: Int) -> (Int, Int) {
+        // TODO: Create a slider that ranges from values 0 to 67.
+        // And when the slider's value changes, update day_index and time_index.
+        // Then remove the previous overlay and replace it with an updated one.
+        let day_index = slider_num / 4
+        let time_index = slider_num % 4
+
+        return (day_index, time_index)
+    }
+    
+    func wave_size(id: Int) -> String {
+        let max: Double = surfline_data.surf_max[id]![day_index][time_index]
+        let min: Double = surfline_data.surf_min[id]![day_index][time_index]
+        let size: Double = (max + min) / 2
+        if size < 2.0 {
+            return waves[0]
+        } else if size < 4.0 {
+            return waves[1]
+        } else {
+            return waves[2]
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,20 +68,27 @@ class MapVC: UIViewController {
     }
     
     func populateMapView () {
-        //use Late/Long here
-        let point = AGSPointMakeWGS84(34.4140, -119.8489)
-        
-        //create the symbol (depending on wave size)
-        let symbol = AGSTextSymbol(text: waves[0], color: UIColor(red: 0, green: 0, blue: 200/255, alpha: 1), size: 15, horizontalAlignment: AGSHorizontalAlignment.center, verticalAlignment: AGSVerticalAlignment.middle)
+        // Create points and text for beach name labels
+        var beach_points_and_symbols = [(AGSPoint, AGSTextSymbol)]()
+        for (id, (lat, long)) in surfline_data.coordinates {
+            let beach_point = AGSPointMakeWGS84(lat, long)
+            let beach_symbol = AGSTextSymbol(text: wave_size(id: Int(id)), color: UIColor(red: 0, green: 0, blue: 200/255, alpha: 1), size: 15, horizontalAlignment: AGSHorizontalAlignment.center, verticalAlignment: AGSVerticalAlignment.middle)
+            beach_points_and_symbols.append(beach_point, beach_symbol)
+        }
 
         //greate a graphic with the symbol
-        let graphic = AGSGraphic(geometry: point, symbol: symbol)
+        var beach_graphics = [AGSGraphic]()
+        for (beach_point, beach_symbol) in beach_points_and_symbols {
+            beach_graphics.append(AGSGraphic(geometry: beach_point, symbol: beach_symbol))
+        }
         
         //create an overlay for the map
         let overlay = AGSGraphicsOverlay()
         
         //add all the graphics here
-        overlay.graphics.add(graphic)
+        for graphic_ in beach_graphics {
+            overlay.graphics.add(graphic_)
+        }
         
         //add the overlay to the map
         self.mapView.graphicsOverlays.add(overlay)
