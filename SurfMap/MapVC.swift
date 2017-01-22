@@ -9,7 +9,7 @@
 import UIKit
 import ArcGIS
 
-class MapVC: UIViewController {
+class MapVC: UIViewController, AGSGeoViewTouchDelegate {
     
     @IBOutlet var mapView: AGSMapView!
     @IBOutlet var timeLabel: UILabel!
@@ -26,7 +26,9 @@ class MapVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.mapView.touchDelegate = self
+        self.mapView.touchDelegate = self
+        
+        self.mapView.locationDisplay.start ()
         
         // Do any additional setup after loading the view.
         self.portal = AGSPortal(url: URL(string: "http://www.arcgis.com")!, loginRequired: false)
@@ -50,6 +52,11 @@ class MapVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func mapView(mapView: AGSMapView, didTapAtPoint screen: CGPoint, mapPoint mappoint: AGSPoint) {
+        print("User tapped on the map at ", mappoint.x, ",", mappoint.y)
+    }
+    
     
     func updateTime () {
         let date = Date()
