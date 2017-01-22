@@ -1,30 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="u3K-oF-YBD">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--MapVC-->
+        <scene sceneID="1vS-nz-7pw">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SurfMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="u3K-oF-YBD" customClass="MapVC" customModule="SurfMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="IDI-Sm-9sj"/>
+                        <viewControllerLayoutGuide type="bottom" id="YYY-yP-rz9"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="a9n-BP-tob">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kt4-I3-NgY" customClass="AGSMapView">
+                                <rect key="frame" x="16" y="28" width="343" height="619"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YYY-yP-rz9" firstAttribute="top" secondItem="kt4-I3-NgY" secondAttribute="bottom" constant="20" id="3an-E2-RKb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kt4-I3-NgY" secondAttribute="trailing" id="7vB-Ii-9VZ"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="kt4-I3-NgY" secondAttribute="leading" id="OFF-De-evn"/>
+                            <constraint firstItem="kt4-I3-NgY" firstAttribute="top" secondItem="IDI-Sm-9sj" secondAttribute="bottom" constant="8" id="WZN-1y-vnl"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="kt4-I3-NgY" id="iBL-GT-kWs"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SoI-Bh-P30" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="248.80000000000001" y="67.916041979010501"/>
         </scene>
     </scenes>
 </document>
