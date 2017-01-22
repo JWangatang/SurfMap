@@ -10,10 +10,10 @@ import UIKit
 
 class DetailsVC: UIViewController {
 
-    let beach_name : String?
-    let surf_max : [Int : [[Double]]]?
-    let surf_min : [Int : [[Double]]]?
-    let wind_direction_speed : [Int : ([[Int]], [[Double]])]
+    let beach_name = String()
+    let surf_max = [Int : [[Double]]]()
+    let surf_min = [Int : [[Double]]]()
+    let wind_direction_speed = [Int : ([[Int]], [[Double]])]()
     
     
     override func viewDidLoad() {
