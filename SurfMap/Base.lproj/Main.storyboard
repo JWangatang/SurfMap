@@ -74,10 +74,10 @@
             </objects>
             <point key="canvasLocation" x="1021.6" y="62.518740629685162"/>
         </scene>
-        <!--View Controller-->
+        <!--DetailsVC-->
         <scene sceneID="d6X-WE-iZj">
             <objects>
-                <viewController id="4O7-EC-Cbg" sceneMemberID="viewController">
+                <viewController id="4O7-EC-Cbg" customClass="DetailsVC" customModule="SurfMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VI4-Jm-vR1"/>
                         <viewControllerLayoutGuide type="bottom" id="FMC-gn-wgb"/>

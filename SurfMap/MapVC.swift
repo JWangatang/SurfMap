@@ -118,6 +118,7 @@ class MapVC: UIViewController {
     }
     
     func populateMapView () {
+        updateTime()
         // Create points and text for beach name labels
         var beach_points_and_symbols = [(AGSPoint, AGSTextSymbol)]()
         for (id, (lat, long)) in surfline_data.coordinates {
@@ -141,18 +142,26 @@ class MapVC: UIViewController {
         
         //add the overlay to the map
         self.mapView.graphicsOverlays.add(surfline_overlay)
-        updateTime()
     }
     
 
-    /*
+    
     // MARK:   Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if(segue.identifier == "Details Segue") {
+            let dest = segue.destination as! DetailsVC
+            /*
+            dest.beach_name =
+            dest.surf_max =
+            dest.surf_min =
+            dest.wind_direction_speed =
+ */
+        }
     }
-    */
+    
 
 }
